@@ -2,6 +2,11 @@
 Stemmer bahasa Indonesia untuk keperluan Information Retrieval menggunakan Python
 
 # Imbuhan yang didukung
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Awalan        | Akhiran       |
+| ------------- |:-------------:|
+| me            | -, -kan, -i,  | 
+| mem           | -, -kan, -i,  |
+| memper        | -, -kan       |
+| men           | -, -kan, -i,  |
+| meng          | -, -kan, -i,  |
+| meny          | -, -kan, -i,  |
