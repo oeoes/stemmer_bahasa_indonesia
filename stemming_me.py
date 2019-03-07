@@ -62,10 +62,10 @@ class Stemming_Me(iki.IdentifikasiKataImbuhan, pi.PerbaikanImbuhan):
     def create_me_classfication(self):
         for i in self.get_me():
             if re.match(r'memper\w+kan$', i):
-                self.store_to_dict('memper-kan', i, 'memper', 'kan')
+                self.store_to_dict_me('memper-kan', i, 'memper', 'kan')
 
             elif re.match(r'memper\w+', i):
-                self.store_to_dict('memper', i, 'memper')
+                self.store_to_dict_me('memper', i, 'memper')
 
             # Karena imbuhan mem berpotensi ada peleburan dan ada juga
             # kata yang diawali huruf m, maka perlu dicek ke dalam KBBI
@@ -73,37 +73,37 @@ class Stemming_Me(iki.IdentifikasiKataImbuhan, pi.PerbaikanImbuhan):
                 res1 = ''.join(re.findall(r'mem(\w+)kan$', i))
                 res2 = ''.join(re.findall(r'me(\w+)kan$', i))
 
-                self.lebur_or_asli(res1, res2, 'me-kan', 'mem-kan', i, 'mem', 'kan')
+                self.me_lebur_or_asli(res1, res2, 'me-kan', 'mem-kan', i, 'mem', 'kan')
 
             elif re.match(r'mem\w+i$', i):
                 res1 = ''.join(re.findall(r'mem(\w+)i$', i))
                 res2 = ''.join(re.findall(r'me(\w+)i$', i))
 
-                self.lebur_or_asli(res1, res2, 'me-i', 'mem-i', i, 'mem', 'i')
+                self.me_lebur_or_asli(res1, res2, 'me-i', 'mem-i', i, 'mem', 'i')
 
             elif re.match(r'mem\w+', i):
                 res1 = ''.join(re.findall(r'mem(\w+)', i))
                 res2 = ''.join(re.findall(r'me(\w+)', i))
 
-                self.lebur_or_asli(res1, res2, 'me', 'mem', i, 'mem')
+                self.me_lebur_or_asli(res1, res2, 'me', 'mem', i, 'mem')
 
             elif re.match(r'meny\w+kan$', i):
                 res1 = ''.join(re.findall(r'meny(\w+)kan$', i))
                 res2 = ''.join(re.findall(r'me(\w+)kan$', i))
 
-                self.lebur_or_asli(res1, res2, 'me-kan', 'meny-kan', i, 'meny', 'kan')
+                self.me_lebur_or_asli(res1, res2, 'me-kan', 'meny-kan', i, 'meny', 'kan')
 
             elif re.match(r'meny\w+i$', i):
                 res1 = ''.join(re.findall(r'meny(\w+)i$', i))
                 res2 = ''.join(re.findall(r'me(\w+)i$', i))
 
-                self.lebur_or_asli(res1, res2, 'me-i', 'meny-i', i, 'meny', 'i')
+                self.me_lebur_or_asli(res1, res2, 'me-i', 'meny-i', i, 'meny', 'i')
 
             elif re.match(r'meny\w+', i):
                 res1 = ''.join(re.findall(r'meny(\w+)', i))
                 res2 = ''.join(re.findall(r'me(\w+)', i))
 
-                self.lebur_or_asli(res1, res2, 'me', 'meny', i, 'meny')
+                self.me_lebur_or_asli(res1, res2, 'me', 'meny', i, 'meny')
 
             # elif re.match(r'menge\w+kan$', i):
             #     self.store_to_dict('menge-kan', i, 'menge', 'kan')
@@ -118,46 +118,46 @@ class Stemming_Me(iki.IdentifikasiKataImbuhan, pi.PerbaikanImbuhan):
                 res1 = ''.join(re.findall(r'meng(\w+)kan$', i))
                 res2 = ''.join(re.findall(r'me(\w+)kan$', i))
 
-                self.lebur_or_asli(res1, res2, 'me-kan', 'meng-kan', i, 'meng', 'kan')
+                self.me_lebur_or_asli(res1, res2, 'me-kan', 'meng-kan', i, 'meng', 'kan')
 
             elif re.match(r'meng\w+i$', i):
                 res1 = ''.join(re.findall(r'meng(\w+)i$', i))
                 res2 = ''.join(re.findall(r'me(\w+)i$', i))
 
-                self.lebur_or_asli(res1, res2, 'me-i', 'meng-i', i, 'meng', 'i')
+                self.me_lebur_or_asli(res1, res2, 'me-i', 'meng-i', i, 'meng', 'i')
 
             elif re.match(r'meng\w+', i):
                 res1 = ''.join(re.findall(r'meng(\w+)', i))
                 res2 = ''.join(re.findall(r'me(\w+)', i))
 
-                self.lebur_or_asli(res1, res2, 'me', 'meng', i, 'meng')
+                self.me_lebur_or_asli(res1, res2, 'me', 'meng', i, 'meng')
 
             elif re.match(r'men\w+kan$', i):
                 res1 = ''.join(re.findall(r'men(\w+)kan$', i))
                 res2 = ''.join(re.findall(r'me(\w+)kan$', i))
 
-                self.lebur_or_asli(res1, res2, 'me-kan', 'men-kan', i, 'men', 'kan')
+                self.me_lebur_or_asli(res1, res2, 'me-kan', 'men-kan', i, 'men', 'kan')
 
             elif re.match(r'men\w+i$', i):
                 res1 = ''.join(re.findall(r'men(\w+)i$', i))
                 res2 = ''.join(re.findall(r'me(\w+)i$', i))
 
-                self.lebur_or_asli(res1, res2, 'me-i', 'men-i', i, 'men', 'i')
+                self.me_lebur_or_asli(res1, res2, 'me-i', 'men-i', i, 'men', 'i')
 
             elif re.match(r'men\w+', i):
                 res1 = ''.join(re.findall(r'men(\w+)', i))
                 res2 = ''.join(re.findall(r'me(\w+)', i))
 
-                self.lebur_or_asli(res1, res2, 'me', 'men', i, 'men')
+                self.me_lebur_or_asli(res1, res2, 'me', 'men', i, 'men')
 
             elif re.match(r'me\w+kan$', i):
-                self.store_to_dict('me-kan', i, 'me', 'kan')
+                self.store_to_dict_me('me-kan', i, 'me', 'kan')
 
             elif re.match(r'me\w+i$', i):
-                self.store_to_dict('me-i', i, 'me', 'i')
+                self.store_to_dict_me('me-i', i, 'me', 'i')
 
             else:
-                self.store_to_dict('me', i, 'me')
+                self.store_to_dict_me('me', i, 'me')
 
     # Mencetak frekuensi imbuhan disertai dengan kata yang muncul(unik)
     def result_me(self):
